@@ -7,7 +7,6 @@ async function updateUserDetails(request,response){
         const user = await getUserDetailsFromToken(token)
 
         const { name, profile_pic } = request.body
-
         const updateUser = await UserModel.findByIdAndUpdate({ _id : user._id },{
             name,
             profile_pic
@@ -23,7 +22,6 @@ async function updateUserDetails(request,response){
 
 
     } catch (error) {
-        console.log("Im running")
         return response.status(500).json({
             message : error.message || error,
             error : true
@@ -31,4 +29,4 @@ async function updateUserDetails(request,response){
     }
 }
 
-module.exports = updateUserDetails
+module.exports = updateUserDetails  
